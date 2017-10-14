@@ -1,5 +1,20 @@
 sudo: false
+cache: bundler
 language: ruby
 rvm:
-  - 2.4.1
+  - jruby-9.1.13.0
+  - jruby-head
+  - 2.1.10
+  - 2.2.8
+  - 2.3.5
+  - 2.4.2
+  - ruby-head
+env:
+  global:
+    - JRUBY_OPTS='--debug -J-Xmx1000M'
 before_install: gem install bundler -v 1.15.4
+install:
+  - bundle install --retry=3
+script:
+  - bin/rubocop
+  - bin/rspec
