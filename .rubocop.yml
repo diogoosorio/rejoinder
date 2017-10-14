@@ -1,0 +1,6 @@
+Metrics/BlockLength:
+  Exclude:
+    - 'rejoinder.gemspec'
+
+Style/Documentation:
+  Enabled: False

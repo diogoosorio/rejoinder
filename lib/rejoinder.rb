@@ -1,4 +1,4 @@
-require "rejoinder/version"
+require 'rejoinder/version'
 
 module Rejoinder
   # Your code goes here...
