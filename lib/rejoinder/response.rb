@@ -1,7 +1,14 @@
 require 'rejoinder/error'
+require 'rejoinder/handler'
 
 module Rejoinder
   class Response
+    private
+
+    attr_reader :handler
+
+    public
+
     class << self
       def success(context: nil)
         new(context: context)
@@ -15,10 +22,12 @@ module Rejoinder
       end
     end
 
+    extend Forwardable
+
     attr_reader :context
     attr_reader :error
 
-    def initialize(context: nil, error: nil)
+    def initialize(context: nil, error: nil, handler_class: Handler)
       if !context.nil? && !error.nil?
         raise ArgumentError,
               'The context and error arguments are mutually exclusive'
@@ -26,6 +35,7 @@ module Rejoinder
 
       @context = context
       @error = error
+      @handler = handler_class.new(response: self)
     end
 
     def success?
@@ -39,5 +49,7 @@ module Rejoinder
     def error!
       error.raise! if error?
     end
+
+    delegate %i[on_success on_error evaluate done] => :@handler
   end
 end

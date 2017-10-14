@@ -59,11 +59,13 @@ module Rejoinder
     def evaluate_error_response
       error = response.error
 
-      default_handler = handlers[:error].fetch(nil, ->(error) { raise error })
+      default_handler = handlers[:error].fetch(nil, ->(e) { raise e })
 
       handler = handlers[:error].fetch(error.code, default_handler)
 
       handler.call(error)
     end
+
+    alias done evaluate
   end
 end
