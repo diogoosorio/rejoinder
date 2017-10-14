@@ -1,6 +1,7 @@
 Metrics/BlockLength:
   Exclude:
     - 'rejoinder.gemspec'
+    - 'spec/**/*.rb'
 
 Style/Documentation:
   Enabled: False
