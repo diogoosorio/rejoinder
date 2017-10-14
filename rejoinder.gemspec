@@ -9,9 +9,14 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Diogo Osório"]
   spec.email         = ["diogo.g.osorio@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = 'A response class with a simple and fluent API'
+  spec.description   = <<-DESCRIPTION
+    Rejoinder provides a standartize way to represent an operation result (i.e. from
+    a business use case or an interactor). It exposes a response object with a fluent
+    API to the invokee be able to elegantly handle successful and failed operations.
+  DESCRIPTION
+
+  spec.homepage      = "https://github.com/diogoosorio/rejoinder"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
