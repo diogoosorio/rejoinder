@@ -1,19 +1,19 @@
 require 'spec_helper'
 require 'rejoinder/response'
-require 'rejoinder/response_error'
+require 'rejoinder/error'
 
 RSpec.describe Rejoinder::Response do
   let(:context) { 'response' }
   let(:error_message) { 'message' }
   let(:error_code) { 1001 }
-  let(:response_error) {
-    Rejoinder::ResponseError.new(message: error_message, code: error_code)
-  }
+  let(:error) do
+    Rejoinder::Error.new(message: error_message, code: error_code)
+  end
 
   context 'when both an error and context are used' do
     describe '#initialize' do
       it do
-        expect { described_class.new(context: context, error: response_error) }
+        expect { described_class.new(context: context, error: error) }
           .to raise_error(ArgumentError)
       end
     end
@@ -75,7 +75,7 @@ RSpec.describe Rejoinder::Response do
     describe '#error!' do
       it do
         expect { subject.error! }
-          .to raise_error(Rejoinder::ResponseError, error_message)
+          .to raise_error(Rejoinder::Error, error_message)
       end
 
       it do

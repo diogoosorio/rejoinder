@@ -1,4 +1,4 @@
-require 'rejoinder/response_error'
+require 'rejoinder/error'
 
 module Rejoinder
   class Response
@@ -10,7 +10,7 @@ module Rejoinder
       def error(message: nil, code: nil)
         new(
           context: nil,
-          error: ResponseError.new(message: message, code: code)
+          error: Error.new(message: message, code: code)
         )
       end
     end

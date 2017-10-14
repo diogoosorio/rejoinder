@@ -1,5 +1,5 @@
 module Rejoinder
-  class ResponseError < StandardError
+  class Error < StandardError
     attr_reader :code
 
     def initialize(message: nil, code: nil)
