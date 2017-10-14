@@ -5,3 +5,13 @@ Metrics/BlockLength:
 
 Style/Documentation:
   Enabled: False
+
+Style/GuardClause:
+  Enabled: False
+
+Style/IfUnlessModifier:
+  Enabled: False
+
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/**/*.rb'
