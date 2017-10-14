@@ -9,4 +9,12 @@
 /tmp/
 
 # rspec failure tracking
+
+# vscode
 .rspec_status
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
